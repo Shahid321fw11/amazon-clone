@@ -1,15 +1,17 @@
 import React from 'react';
-import '../Components/Header.css';
+import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
+import { Link } from "react-router-dom"
 
 function Header(){
     return(
         // top header , its divided into 3 part
         <div className="header">
             {/* 1st part */}
-            <img className="header_logo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"></img>
+            {/* <Link to={"/"}> */}
+                <img className="header_logo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt=""></img>
+            {/* </Link> */}
 
             {/* 2nd part */}
             <div className="header_search">
