@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CurrencyFormat from 'react-currency-format';
 import { Link, useHistory } from 'react-router-dom';
+import { db } from '../firebase';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css';
 import { getBasketTotals } from './reducer';
@@ -35,6 +36,8 @@ function Payment() {
         getClientSecret();
     },[basket])
 
+    console.log('the secret is ', clientSecret)
+
     const handleSubmit = async (e) => {
         // do all the facy stripe stuff....
         e.preventDefault();
@@ -46,9 +49,24 @@ function Payment() {
             }
         }).then(({paymentIntent}) => {
             // payment intent = payment confirmation
+
+            db
+            .collection('users')
+            .doc(user?.uid)
+            .collection('orders')
+            .set({
+                basket:basket,
+                amount: paymentIntent.amount,
+                created:paymentIntent.created
+            })
+
             setSucceeded('true');
             setError(null);
             setProcessing(false);
+
+            dispatch({
+                type:'EMPYT_BASKET'
+            })
 
             history.replace('/orders')
         })

@@ -332,3 +332,4 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [info] i  functions: Finished "us-central1-api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"message":"Finished \"us-central1-api\" in ~1s"}}
 [debug] [2022-01-24T23:22:45.776Z] [worker-us-central1-api-09fb9b78-dc60-4e20-a811-959072950e06]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-09fb9b78-dc60-4e20-a811-959072950e06]: IDLE"}}
 [debug] [2022-01-24T23:22:45.776Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-01-24T23:44:06.520Z] Received signal SIGHUP 1
